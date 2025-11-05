@@ -19,16 +19,10 @@ JustFlix es una plataforma de streaming de videos.
 - **JavaScript**
 - **TypeScript**
 
-### Fronted
-
-- **Flutter**
-- **Dart**
-
-## Repositorio
+## Repositorio relacionados
 
 | Módulo   | Repositorio |
 | -------- | ----------- |
-| Backend  | [url](url)  |
 | Frontend | [url](url)  |
 
 --
@@ -43,7 +37,6 @@ JustFlix es una plataforma de streaming de videos.
 ## Requisitos
 
 - **Node.js >= 18**
-- **Flutter >= 3.0**
 - **Git**
 
 Todos los derechos reservados © JustFlix 2025
