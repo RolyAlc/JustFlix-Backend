@@ -1,4 +1,4 @@
-let videos=[
+let videos = [
   {
     "id": "video_01",
     "topic": "Flutter",
@@ -36,4 +36,4 @@ let videos=[
   }
 ];
 
-export {videos};
+export { videos };
