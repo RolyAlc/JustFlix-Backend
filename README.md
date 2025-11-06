@@ -39,4 +39,17 @@ JustFlix es una plataforma de streaming de videos.
 - **Node.js >= 18**
 - **Git**
 
+## ✅ Progreso del proyecto
+
+- [x] **Configuración Base**:
+  - [x] Node.js + TypeScript
+  - [x] Express
+  - [x] nodemon
+  - [x] dotenv
+- [x] **Capa de Dominio**: Definición de entidades, casos de uso e interfaces de repositorio.
+- [x] **Capa de Infraestructura**: Implementación del repositorio en memoria (`VideoRepositoryInMemory`).
+- [ ] **Capa de Presentación**: Implementación de rutas y controladores (`http`).
+
+--
+
 Todos los derechos reservados © JustFlix 2025
