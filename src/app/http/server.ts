@@ -6,6 +6,10 @@ export function buildServer() {
 
   app.use(express.json());
 
+  app.get('/', (req, res) => {
+    res.send("Servidor activo.");
+  });
+
   app.use("/api/videos", VideoRouter);
 
   app.use(function (req: Request, res: Response, next: NextFunction) {
