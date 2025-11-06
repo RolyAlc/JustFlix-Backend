@@ -8,7 +8,7 @@ export interface IVideoRepository {
   create(video: Video): Promise<Video>;
   
   /**
-   * Mètode per buscar un usuari per id. Retorna una promesa amb el video
+   * Mètode per buscar un video per id. Retorna una promesa amb el video
    */
   findById(id: string): Promise<Video | null>;
   
@@ -17,5 +17,8 @@ export interface IVideoRepository {
    */
   findAll(): Promise<Video[]>;
 
+  /**
+   * Mètode per buscar un video per topic. Retorna una promesa lista con el/los video/s
+   */
   findByTopic(topic: string): Promise<Video[]>;
 }
