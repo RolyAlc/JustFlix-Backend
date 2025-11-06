@@ -48,7 +48,7 @@ JustFlix es una plataforma de streaming de videos.
   - [x] dotenv
 - [x] **Capa de Dominio**: Definición de entidades, casos de uso e interfaces de repositorio.
 - [x] **Capa de Infraestructura**: Implementación del repositorio en memoria (`VideoRepositoryInMemory`).
-- [ ] **Capa de Presentación**: Implementación de rutas y controladores (`http`).
+- [x] **Capa de Presentación**: Implementación de rutas y controladores (`http`).
 
 --
 
