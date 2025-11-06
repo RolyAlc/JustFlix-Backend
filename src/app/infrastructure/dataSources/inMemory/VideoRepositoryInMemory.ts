@@ -26,4 +26,10 @@ export class VideoRepositoryInMemory implements IVideoRepository {
   async findAll(): Promise<Video[]> {
     return this.records.map(VideoMapper.toDomain);
   }
+
+  async findByTopic(topic: string): Promise<Video[]> {
+    const records = this.records.filter(record => record.topic.toLowerCase() === topic.toLowerCase()
+  );
+  return records.map(VideoMapper.toDomain);
+  }
 }

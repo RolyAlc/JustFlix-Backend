@@ -4,6 +4,7 @@ import { GetVideoByIdUseCase } from "../../domain/usecases/video/GetVideoByIdUse
 import { GetVideosUseCase } from "../../domain/usecases/video/GetVideosUseCase";
 import { VideoRepositoryInMemory } from "../../infrastructure/dataSources/inMemory/VideoRepositoryInMemory";
 import { VideoController } from "../controllers/video.controller";
+import { GetVideoByTopicUseCase } from "../../domain/usecases/video/GetVideoByTopicUseCase";
 
 // Creem una implementació del repositori
 const repo = new VideoRepositoryInMemory();
@@ -16,7 +17,8 @@ const repo = new VideoRepositoryInMemory();
 const controller = new VideoController(
   new CreateVideoUseCase(repo),
   new GetVideosUseCase(repo),
-  new GetVideoByIdUseCase(repo)
+  new GetVideoByIdUseCase(repo),
+  new GetVideoByTopicUseCase(repo)
 );
 
 const VideoRouter = Router();
@@ -24,6 +26,7 @@ const VideoRouter = Router();
 VideoRouter.post("/", controller.create);
 VideoRouter.get("/", controller.getAll);
 VideoRouter.get("/:id", controller.getById);
+VideoRouter.get("/topic/:topic", controller.getByTopic);
 
 // Exportem el router
 export default VideoRouter;
