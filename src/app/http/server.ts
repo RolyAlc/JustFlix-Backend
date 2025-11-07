@@ -1,10 +1,12 @@
 import express, { Request, Response, NextFunction } from "express";
 import VideoRouter from "./routes/video.routes";
+import cors from "cors";
 
 export function buildServer() {
   const app = express();
-
+  
   app.use(express.json());
+  app.use(cors());
 
   app.get('/', (req, res) => {
     res.send("Servidor activo.");
