@@ -11,6 +11,9 @@ services:
       - "${PORT_HOST}:${PORT}"
     volumes:
       - .:/usr/src/app
-      - /usr/src/app/node_modules
+      - justflix_node_modules:/usr/src/app/node_modules
     env_file:
       - .env
+
+volumes:
+  justflix_node_modules:
