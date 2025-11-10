@@ -75,7 +75,8 @@ cp .env.example .env
 
 ```bash
 # Ejemplo del fichero .env
-PORT_HOST=3000
+PORT_HOST=3002
+PORT=3000
 ```
 
 ### Instalación paso a paso
@@ -85,11 +86,9 @@ PORT_HOST=3000
 git clone https://github.com/RolyAlc/JustFlix-Backend.git
 cd JustFlix-Backend
 
-# Instalar dependencias
-npm install
+# Levantar contendor Node
+docker compose up --build
 
-# Ejecutar en modo desarrollo (TypeScript + Nodemon)
-npm start
 ```
 
 Todos los derechos reservados © JustFlix 2025
