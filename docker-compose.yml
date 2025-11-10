@@ -5,8 +5,10 @@ services:
     build: .
     command: npm run dev
     container_name: justflix-app
+    environment:
+      - PORT_HOST
     ports:
-      - "${PORT}:3000"
+      - "${PORT_HOST}:${PORT}"
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules

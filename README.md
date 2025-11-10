@@ -55,6 +55,8 @@ JustFlix es una plataforma de streaming de videos.
 
 - [ ] Utilizar datos estáticos (.json)
 - [ ] Añadir un menu básico de endpoint a consultar
+- [ ] Docker node
+- [ ] Arquitectura Clean
 
 ---
 
@@ -73,7 +75,7 @@ cp .env.example .env
 
 ```bash
 # Ejemplo del fichero .env
-PORT=3000
+PORT_HOST=3000
 ```
 
 ### Instalación paso a paso

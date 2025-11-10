@@ -5,5 +5,6 @@ const app = buildServer();
 const port = config.port;
 
 app.listen(port, () => {
-    console.log(`Servidor escuchando en http://localhost:${port}`);
+    const hostPort = process.env.PORT_HOST || port;
+    console.log(`Servidor escuchando en http://localhost:${hostPort}`);
 });
