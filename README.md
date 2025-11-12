@@ -24,7 +24,11 @@ JustFlix es una plataforma de streaming de videos.
 | Módulo   | Repositorio                                                    |
 | -------- | -------------------------------------------------------------- |
 | Base     | [url](https://github.com/adriian04/just-eat-adrian-roly-santi) |
+<<<<<<< HEAD
 | Frontend | [url](https://github.com/SantiagoFalquet/justflix_frontend)    |
+=======
+| Frontend | [url](url)                                                     |
+>>>>>>> 01_Backend_Dockerizacion
 
 ---
 
@@ -55,6 +59,11 @@ JustFlix es una plataforma de streaming de videos.
 
 - [ ] Utilizar datos estáticos (.json)
 - [ ] Añadir un menu básico de endpoint a consultar
+<<<<<<< HEAD
+=======
+- [ ] Docker node
+- [ ] Arquitectura Clean
+>>>>>>> 01_Backend_Dockerizacion
 
 ---
 
@@ -73,6 +82,7 @@ cp .env.example .env
 
 ```bash
 # Ejemplo del fichero .env
+PORT_HOST=3002
 PORT=3000
 ```
 
@@ -83,13 +93,9 @@ PORT=3000
 git clone https://github.com/RolyAlc/JustFlix-Backend.git
 cd JustFlix-Backend
 
-# Instalar dependencias
-npm install
+# Levantar contendor Node
+docker compose up --build
 
-# Ejecutar en modo desarrollo (TypeScript + Nodemon)
-npm start
 ```
-
----
 
 Todos los derechos reservados © JustFlix 2025

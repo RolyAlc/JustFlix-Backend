@@ -1,3 +1,4 @@
 00_r/**
 node_modules/**
 .env
+public/assets/*

@@ -1,0 +1,16 @@
+[
+    {
+        "id": "video_01",
+        "topic": "Flutter",
+        "description": "Aprender a crar una App",
+        "duration": 300,
+        "thumbnail": "flutter.png"
+    },
+    {
+        "id": "video_02",
+        "topic": "Adobe",
+        "description": "La nube de Adobe",
+        "duration": 200,
+        "thumbnail": "adobe.png"
+    }
+]
