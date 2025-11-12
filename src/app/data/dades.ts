@@ -2,9 +2,10 @@ let videos = [
   {
     "id": "video_01",
     "topic": "Flutter",
-    "description": "Aprender a crear una App",
+    "description": "Demo",
     "duration": 300,
-    "thumbnail": "http://localhost:3002/assets/thumbnails/flutter.png"
+    "thumbnail": "assets/videos/demo/thumbnail/thumbnail_demo.png",
+    "videoUrl": "/assets/videos/demo/hls/index.m3u8"
   },
   {
     "id": "video_02",
