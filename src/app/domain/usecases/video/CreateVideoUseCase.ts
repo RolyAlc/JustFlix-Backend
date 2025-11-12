@@ -4,18 +4,29 @@ import { Video } from "../../entities/Video";
 export class CreateVideoUseCase {
   constructor(
     private videoRepository: IVideoRepository
-  ) {}
+  ) { }
 
+  /**
+   * Crea un vídeo en el repositorio
+   * @param id - Identificador único del vídeo.
+   * @param topic - Categoría del vídeo.
+   * @param description - Descripción detallada del vídeo.
+   * @param duration - Duración del vídeo en segundos.
+   * @param thumbnail - URL de la miniatura del vídeo.
+   * @param videoUrl - URL del archivo de reproducción HLS del vídeo.
+   * @returns {Promise<Video>} Una promesa que resuelve con el objeto Video creado.
+   */
   async execute(
     id: string,
     topic: string,
     description: string,
     duration: number,
-    thumbnail: string
+    thumbnail: string,
+    videoUrl: string,
   ): Promise<Video> {
-    // Validar que no existe un vídeo con el mismo id
+    // Validar que no existe un vídeo con el mismo id.
     const existingVideo = await this.videoRepository.findById(id);
-    
+
     if (existingVideo) {
       throw new Error(`El vídeo con el id '${id} ya existe'`);
     }
@@ -25,7 +36,8 @@ export class CreateVideoUseCase {
       topic,
       description,
       duration,
-      thumbnail
+      thumbnail,
+      videoUrl
     });
 
     return video;
