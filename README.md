@@ -59,11 +59,8 @@ JustFlix es una plataforma de streaming de videos.
 
 - [ ] Utilizar datos estáticos (.json)
 - [ ] Añadir un menu básico de endpoint a consultar
-<<<<<<< HEAD
-=======
 - [ ] Docker node
 - [ ] Arquitectura Clean
->>>>>>> 01_Backend_Dockerizacion
 
 ---
 
