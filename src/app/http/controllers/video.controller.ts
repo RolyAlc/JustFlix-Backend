@@ -27,6 +27,7 @@ export class VideoController {
                 req.body.description,
                 req.body.duration,
                 req.body.thumbnail,
+                req.body.videoUrl, // Puede dar error de compilacion.
             );
             res.status(201).json(result);
         } catch (err) { next(err); }

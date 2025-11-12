@@ -4,4 +4,5 @@ export interface CreateVideoInterface {
   description: string;
   duration: number;
   thumbnail: string;
+  videoUrl: string;
 }
