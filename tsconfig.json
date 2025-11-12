@@ -42,5 +42,11 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
-  }
+  },
+  // excluir ficheros .ts q no procesan de typeScript como hls
+  "exclude": [
+    "node_modules",
+    "dist",
+    "public"
+  ]
 }
