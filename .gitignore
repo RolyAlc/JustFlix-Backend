@@ -3,11 +3,11 @@ node_modules/**
 .env
 # Ignorar contenido 
 public/assets/thumbnails/*
-public/assets/video/*/origen/*
-public/assets/video/*/hls/*
-public/assets/video/*/thumbnail/*
+public/assets/videos/*/origen/*
+public/assets/videos/*/hls/*
+public/assets/videos/*/thumbnail/*
 
 # Mantener estructura de carpeta
-!public/assets/video/*/origen/.gitkeep
-!public/assets/video/*/hls/.gitkeep
-!public/assets/video/*/thumbnail/.gitkeep
+!public/assets/videos/*/origen/.gitkeep
+!public/assets/videos/*/hls/.gitkeep
+!public/assets/videos/*/thumbnail/.gitkeep
