@@ -7,7 +7,7 @@ let videos = [
     "thumbnail": "assets/videos/demo/thumbnail/thumbnail_demo.png",
     "videoUrl": "/assets/videos/demo/hls/index.m3u8"
   },
-  {
+  /* {
     "id": "video_02",
     "topic": "Instalación y configuración del entorno",
     "description": "Cómo instalar Flutter, Dart SDK y configurar VS Code o Android Studio.",
@@ -69,7 +69,7 @@ let videos = [
     "description": "Guarda información localmente usando SharedPreferences y SQLite.",
     "duration": 720,
     "thumbnail": "http://localhost:3002/assets/thumbnails/flutter.png"
-  }
+  } */
 ];
 
 export { videos };
