@@ -1,13 +1,17 @@
 import { IVideoRepository } from "../../repositories/IVideoRepository";
 import { Video } from "../../entities/Video";
 
+/**
+ * Caso de uso: Creación de un nuevo vídeo.
+ */
 export class CreateVideoUseCase {
   constructor(
     private videoRepository: IVideoRepository
   ) { }
 
   /**
-   * Crea un vídeo en el repositorio
+   * Crea un vídeo en el repositorio.
+   * 
    * @param id - Identificador único del vídeo.
    * @param topic - Categoría del vídeo.
    * @param description - Descripción detallada del vídeo.
@@ -24,22 +28,32 @@ export class CreateVideoUseCase {
     thumbnail: string,
     videoUrl: string,
   ): Promise<Video> {
-    // Validar que no existe un vídeo con el mismo id.
-    const existingVideo = await this.videoRepository.findById(id);
-
-    if (existingVideo) {
-      throw new Error(`El vídeo con el id '${id} ya existe'`);
+    // Validad parámetros obligatorios.
+    if (!id || !topic || !description || !duration || !thumbnail || !videoUrl) {
+      throw new Error("Todos los campos son obligatorios para crear el video.");
     }
 
-    const video = await this.videoRepository.create({
-      id,
-      topic,
-      description,
-      duration,
-      thumbnail,
-      videoUrl
-    });
+    try {
+      // Validar que no existe un vídeo con el mismo id.
+      const existingVideo = await this.videoRepository.findById(id);
 
-    return video;
+      if (existingVideo) {
+        throw new Error(`El vídeo con el id '${id} ya existe'`);
+      }
+
+      // Crear video.
+      const video = await this.videoRepository.create({
+        id,
+        topic,
+        description,
+        duration,
+        thumbnail,
+        videoUrl
+      });
+
+      return video;
+    } catch (error) {
+      throw new Error("Error al crear el video: " + error); // Pierde el contenido del error
+    }
   }
 }
