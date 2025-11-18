@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction } from "express";
 import VideoRouter from "./routes/video.routes";
 import { errorMiddleware } from "./middlewares/error.middleware";
-import { notFoundMiddleware } from "./middlewares/notFount.middleware";
+import { notFoundMiddleware } from "./middlewares/notFound.middleware";
 import cors from "cors";
 
 /**
