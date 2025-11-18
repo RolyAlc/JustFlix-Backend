@@ -19,9 +19,9 @@ export function buildServer(): express.Application {
   // Servir archivos estáticos
   app.use(express.static('public'));
 
-  // Endpoint base para verificar el estaod del servidor.
+  // Endpoint base para verificar el estado del servidor.Muestra lista de endpoint disponible.
   app.get('/', (req, res) => {
-    res.send("Servidor activo.");
+    res.sendFile("index.html");
   });
 
   // Rutas principales
