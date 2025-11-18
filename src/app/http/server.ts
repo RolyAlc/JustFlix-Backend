@@ -1,36 +1,36 @@
 import express, { Request, Response, NextFunction } from "express";
 import VideoRouter from "./routes/video.routes";
+import { errorMiddleware } from "./middlewares/error.middleware";
+import { notFoundMiddleware } from "./middlewares/notFount.middleware";
 import cors from "cors";
 
-export function buildServer() {
+/**
+ * Inicializa y configura la aplicaicón Express
+ * 
+ * @returns {express.Application} Instancia de la aplicación configurada.
+ */
+export function buildServer(): express.Application {
   const app = express();
-  
+
+  // Middlewares globales
   app.use(express.json());
   app.use(cors());
 
+  // Servir archivos estáticos
   app.use(express.static('public'));
 
+  // Endpoint base para verificar el estaod del servidor.
   app.get('/', (req, res) => {
     res.send("Servidor activo.");
   });
 
+  // Rutas principales
   app.use("/api/videos", VideoRouter);
 
-  app.use(function (req: Request, res: Response, next: NextFunction) {
-    res.status(404).json({ message: "Resource not found" });
-  });
-
-  app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-    console.error(err); // Log per consola (o logger a futur)
-
-    // Si ja té codi d'estat assignat; l’utilitzem
-    const status = err.status || 500;
-
-    res.status(status).json({
-      error: true,
-      message: err.message || "Internal server error",
-    });
-  });
+  // Middleware para recursos no encontrados.
+  app.use(notFoundMiddleware);
+  // Middleware de manejo global de errores.
+  app.use(errorMiddleware);
 
   return app;
 }
