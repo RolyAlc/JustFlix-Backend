@@ -4,7 +4,7 @@ let videos = [
     "topic": "Flutter",
     "description": "Demo",
     "duration": 300,
-    "thumbnail": "assets/videos/demo/thumbnail/thumbnail_demo.png",
+    "thumbnail": "/assets/videos/demo/thumbnail/thumbnail_demo.png",
     "videoUrl": "/assets/videos/demo/hls/index.m3u8"
   },
   {
@@ -12,7 +12,7 @@ let videos = [
     "topic": "Flutter",
     "description": "video_01",
     "duration": 310,
-    "thumbnail": "assets/videos/video_01/thumbnail/thumbnail_video_01.png",
+    "thumbnail": "/assets/videos/video_01/thumbnail/thumbnail_video_01.png",
     "videoUrl": "/assets/videos/video_01/hls/index.m3u8"
   },
     {
@@ -20,7 +20,7 @@ let videos = [
     "topic": "Flutter",
     "description": "video_02",
     "duration": 320,
-    "thumbnail": "assets/videos/video_02/thumbnail/thumbnail_video_02.png",
+    "thumbnail": "/assets/videos/video_02/thumbnail/thumbnail_video_02.png",
     "videoUrl": "/assets/videos/video_02/hls/index.m3u8"
   },
     {
@@ -28,7 +28,7 @@ let videos = [
     "topic": "Flutter",
     "description": "video_03",
     "duration": 330,
-    "thumbnail": "assets/videos/video_03/thumbnail/thumbnail_video_03.png",
+    "thumbnail": "/assets/videos/video_03/thumbnail/thumbnail_video_03.png",
     "videoUrl": "/assets/videos/video_03/hls/index.m3u8"
   },
 ];
