@@ -12,6 +12,13 @@ import { GetVideoByTopicUseCase } from "../../domain/usecases/video/GetVideoByTo
  */
 
 export class VideoController {
+    /**
+     * 
+     * @param createVideo - Caso de uso
+     * @param getVideos - Caso de uso
+     * @param getVideoById - Caso de uso
+     * @param getVideoByTopic - Caso de uso
+     */
     constructor(
         private createVideo: CreateVideoUseCase,      // Les funcions del controlador seran els casos d'ús
         private getVideos: GetVideosUseCase,
@@ -19,6 +26,10 @@ export class VideoController {
         private getVideoByTopic: GetVideoByTopicUseCase
     ) { }
 
+    /**
+     * Crea un nuevo video a parti de los datos proporcioandos en el cueerpo de la peticio.
+     * @returns {Promise<void>} Promesa que resuelve cuando se ha creado el video y enviado la respuesta.
+     */
     create = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const result = await this.createVideo.execute(
