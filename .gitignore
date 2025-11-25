@@ -2,16 +2,24 @@
 node_modules/**
 .env
 dist/*
+
 # Ignorar contenido 
 public/assets/thumbnails/*
 public/assets/videos/*/origen/*
 public/assets/videos/*/hls/*
 public/assets/videos/*/thumbnail/*
 
-# Mantener estructura de carpeta
+# Mantener estructura de carpeta (solo subcarpetas)
 !public/assets/videos/*/origen/.gitkeep
 !public/assets/videos/*/hls/.gitkeep
 !public/assets/videos/*/thumbnail/.gitkeep
 
-# Carpeta public subida
+# *** PERMITIR LA CARPETA PUBLIC COMPLETA ***
+!public/
+
+# Archivos permitidos dentro de public
+!public/index.html
+!public/*.html
+!public/*.css
+!public/*.js
 !public/.gitkeep
