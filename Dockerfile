@@ -18,21 +18,24 @@ COPY . .
 RUN npm run build
 
 # ==== 2. Producción (production) ====
-# Version Node 24 - Versión ligera para b/p
 FROM node:24-slim AS production
 
 WORKDIR /usr/src/app
 
-# Copiar solo las dependencias de producción desde la fase de contrucción.
+# Copiar solo las dependencias de producción desde la fase de construcción.
 COPY --from=build /usr/src/app/node_modules ./node_modules
+
 # Copiar el código JS compilado desde la fase de construcción.
 COPY --from=build /usr/src/app/dist ./dist
-# Copiar package.json para q el comando de start funcione.
+
+# Copiar carpeta pública
+COPY --from=build /usr/src/app/public ./public
+
+# Copiar package.json para que el comando de start funcione.
 COPY package.json .
 
-# Exponer el puerto que usará la aplicación (doc).
+# Exponer el puerto que usará la aplicación
 EXPOSE 3000
 
 # Comando por defecto para iniciar la aplicación
 CMD ["npm", "run", "start"]
-

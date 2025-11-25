@@ -3,6 +3,7 @@ import VideoRouter from "./routes/video.routes";
 import { errorMiddleware } from "./middlewares/error.middleware";
 import { notFoundMiddleware } from "./middlewares/notFound.middleware";
 import cors from "cors";
+import path from "path";
 
 /**
  * Inicializa y configura la aplicaicón Express
@@ -16,12 +17,13 @@ export function buildServer(): express.Application {
   app.use(express.json());
   app.use(cors());
 
+  const PUBLIC_DIR = path.resolve(process.cwd(), "public");
   // Servir archivos estáticos
-  app.use(express.static('public'));
+  app.use(express.static(PUBLIC_DIR));
 
   // Endpoint base para verificar el estado del servidor.Muestra lista de endpoint disponible.
-  app.get('/', (req, res) => {
-    res.sendFile("index.html");
+  app.get("/", (req, res) => {
+    res.sendFile(path.join(PUBLIC_DIR, "index.html"));
   });
 
   // Rutas principales
