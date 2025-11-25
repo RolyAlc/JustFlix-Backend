@@ -1,6 +1,7 @@
 00_r/**
 node_modules/**
 .env
+dist/*
 # Ignorar contenido 
 public/assets/thumbnails/*
 public/assets/videos/*/origen/*
