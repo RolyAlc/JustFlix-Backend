@@ -8,9 +8,9 @@ let videos = [
     "videoUrl": "/assets/videos/demo/hls/index.m3u8"
   }, */
   {
-    "id": "Hardware y getión de recursos de los smartphones",
+    "id": "Hardware y gestión de recursos de los smartphones",
     "topic": "PSP",
-    "description": "Hardware y getión de recursos de los smartphones",
+    "description": "Hardware y gestión de recursos de los smartphones",
     "duration": 310,
     "thumbnail": "/assets/videos/video_01/thumbnail/thumbnail_video_01.png",
     "videoUrl": "/assets/videos/video_01/hls/index.m3u8"
