@@ -5,9 +5,7 @@ import { Video } from "../../entities/Video";
  * Caso de uso: Obtener un video por su Topic.
  */
 export class GetVideoByTopicUseCase {
-  constructor(
-    private videoRepository: IVideoRepository
-  ) {}
+  constructor(private videoRepository: IVideoRepository) { }
 
   /**
    * Obtenr todos los videos que coinciden con el topic dado.

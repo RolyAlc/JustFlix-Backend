@@ -1,39 +1,26 @@
-import { IVideoRepository } from "../../../domain/repositories/IVideoRepository";
-import { Video } from "../../../domain/entities/Video";
-import { VideoMapper } from "../../mappers/VideoMapper";
-import { VideoRecord } from "./models/VideoRecord";
 import { videos } from "../../../data/dades";
+import { Video } from "../../../domain/entities/Video";
+import { IVideoRepository } from "../../../domain/repositories/IVideoRepository";
+import { VideoRecord } from "./models/VideoRecord";
+import { VideoMapper } from "../../mappers/VideoMapper";
 
 /**
  * Repositorio en memoria para la gestión de videos.
  * Implementa la intefaz IVideoRepository para desacoplar
  * la lógica de negocio de la persistencia de datos.
- * @class VideoRepositoryInMemory
  * @implements {IVideoRepository}
  */
 export class VideoRepositoryInMemory implements IVideoRepository {
+  // Alamcenamiento en memoria
+  private Video: VideoRecord[] = videos;
 
   /**
-   * @private
-   * @type {VideoRecord[]}
-   * Almacena los registro de video sen memoria.
+   * Almacena los registro de videos en memoria.
    */
-  private records: VideoRecord[] = videos.map(v => ({
-    ...v,
-    createdAt: new Date().toISOString()
-  }));
-
-  /**
-   * 
-   * @param video Crea un nuevo video y lo almacen en el repositorio en memoria.
-   * @returns {Promise<Video>} Una promesa que resuelve con el Video creado.
-   */
-  async create(video: Video): Promise<Video> {
-    const newRecord: VideoRecord = VideoMapper.toRecord(video);
-
-    this.records.push(newRecord);
-
-    return video;
+  async create (Video: Video){
+    const record = VideoMapper.toRecord(Video);
+    this.Video.push(record);
+    return VideoMapper.toDomain(record);
   }
 
   /**
@@ -42,7 +29,7 @@ export class VideoRepositoryInMemory implements IVideoRepository {
    * @returns {Promise<Video | null>} Una promesa que resuelve con el Video encontrado o null si no existe.
    */
   async findById(id: string): Promise<Video | null> {
-    const record = this.records.find(v => v.id === id);
+    const record = this.Video.find(v => v.id === id);
     return record ? VideoMapper.toDomain(record) : null;
   }
 
@@ -51,7 +38,7 @@ export class VideoRepositoryInMemory implements IVideoRepository {
    * @returns {Promise<Video[]>} Una promesa que resuelve con una lista de todos los videos.
    */
   async findAll(): Promise<Video[]> {
-    return this.records.map(VideoMapper.toDomain);
+    return this.Video.map(v => VideoMapper.toDomain(v));
   }
 
   /**
@@ -60,8 +47,7 @@ export class VideoRepositoryInMemory implements IVideoRepository {
    * @returns {Promise<Video[]>} Una promesa que resuelve con una lista de videos que coinciden con el tema.
    */
   async findByTopic(topic: string): Promise<Video[]> {
-    const records = this.records.filter(record => record.topic.toLowerCase() === topic.toLowerCase()
-    );
+    const records = this.Video.filter(record => record.topic.toLowerCase() === topic.toLowerCase());
     return records.map(VideoMapper.toDomain);
   }
 }

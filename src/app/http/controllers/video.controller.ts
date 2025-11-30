@@ -12,13 +12,6 @@ import { GetVideoByTopicUseCase } from "../../domain/usecases/video/GetVideoByTo
  */
 
 export class VideoController {
-    /**
-     * 
-     * @param createVideo - Caso de uso
-     * @param getVideos - Caso de uso
-     * @param getVideoById - Caso de uso
-     * @param getVideoByTopic - Caso de uso
-     */
     constructor(
         private createVideo: CreateVideoUseCase,      // Les funcions del controlador seran els casos d'ús
         private getVideos: GetVideosUseCase,
@@ -32,22 +25,19 @@ export class VideoController {
      */
     create = async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const result = await this.createVideo.execute(
-                req.body.id,
-                req.body.topic,
-                req.body.description,
-                req.body.duration,
-                req.body.thumbnail,
-                req.body.videoUrl, // Puede dar error de compilacion.
-            );
+            const result = await this.createVideo.execute(req.body);
             res.status(201).json(result);
-        } catch (err) { next(err); }
+        } catch (err) {
+            next(err);
+        }
     }
 
     getAll = async (req: Request, res: Response, next: NextFunction) => {
         try {
             res.json(await this.getVideos.execute());
-        } catch (err) { next(err); }
+        } catch (err) {
+            next(err);
+        }
     }
 
     getById = async (req: Request, res: Response, next: NextFunction) => {
@@ -55,15 +45,15 @@ export class VideoController {
             const id = req.params.id;
 
             if (!id) {
-                return res.status(400).json({ message: "Video ID is required"})
+                return res.status(400).json({ message: "Video ID is required" })
             }
 
             const video = await this.getVideoById.execute(id);
-            
+
             if (!video) {
                 return res.status(404).json({ message: "Video not found" });
-            } 
-            
+            }
+
             res.json(video);
         } catch (err) { next(err); }
     }
@@ -73,11 +63,11 @@ export class VideoController {
             const topic = req.params.topic;
 
             if (!topic) {
-                return res.status(400).json({ message: "Topic is required"})
+                return res.status(400).json({ message: "Topic is required" })
             }
-            
+
             const video = await this.getVideoByTopic.execute(topic);
-            
+
             res.json(video);
         } catch (err) { next(err); }
     }

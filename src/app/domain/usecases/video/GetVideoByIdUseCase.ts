@@ -5,9 +5,7 @@ import { Video } from "../../entities/Video";
  * Caso de uso: Obtener un video por su ID.
  */
 export class GetVideoByIdUseCase {
-  constructor(
-    private videoRepository: IVideoRepository
-  ) {}
+  constructor(private videoRepository: IVideoRepository) { }
 
   /**
    * Ejecuta la lógica para obtener un video por su ID.
