@@ -7,7 +7,7 @@ import { VideoController } from "../controllers/video.controller";
 import { GetVideoByTopicUseCase } from "../../domain/usecases/video/GetVideoByTopicUseCase";
 
 // Creem una implementació del repositori
-const repo = new VideoRepositoryInMemory();
+const repository = new VideoRepositoryInMemory();
 
 /**
  * Creem el Controlador per als videos, proporcionant-li
@@ -15,10 +15,10 @@ const repo = new VideoRepositoryInMemory();
  * amb el repositori (injecció de dependències)
  */
 const controller = new VideoController(
-  new CreateVideoUseCase(repo),
-  new GetVideosUseCase(repo),
-  new GetVideoByIdUseCase(repo),
-  new GetVideoByTopicUseCase(repo)
+  new CreateVideoUseCase(repository),
+  new GetVideosUseCase(repository),
+  new GetVideoByIdUseCase(repository),
+  new GetVideoByTopicUseCase(repository)
 );
 
 const VideoRouter = Router();

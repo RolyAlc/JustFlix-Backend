@@ -1,33 +1,25 @@
 import { IVideoRepository } from "../../repositories/IVideoRepository";
 import { Video } from "../../entities/Video";
 
+interface CreateVideoDTO {
+  id: string,
+  topic: string,
+  description: string,
+  duration: number,
+  thumbnail: string,
+  videoUrl: string,
+}
+
 /**
  * Caso de uso: Creación de un nuevo vídeo.
  */
 export class CreateVideoUseCase {
-  constructor(
-    private videoRepository: IVideoRepository
-  ) { }
+  constructor(private videoRepository: IVideoRepository) { }
 
   /**
    * Crea un vídeo en el repositorio.
-   * 
-   * @param id - Identificador único del vídeo.
-   * @param topic - Categoría del vídeo.
-   * @param description - Descripción detallada del vídeo.
-   * @param duration - Duración del vídeo en segundos.
-   * @param thumbnail - URL de la miniatura del vídeo.
-   * @param videoUrl - URL del archivo de reproducción HLS del vídeo.
-   * @returns {Promise<Video>} Una promesa que resuelve con el objeto Video creado.
    */
-  async execute(
-    id: string,
-    topic: string,
-    description: string,
-    duration: number,
-    thumbnail: string,
-    videoUrl: string,
-  ): Promise<Video> {
+  async execute({ id, topic, description, duration, thumbnail, videoUrl }: CreateVideoDTO) {
     // Validad parámetros obligatorios.
     if (!id || !topic || !description || !duration || !thumbnail || !videoUrl) {
       throw new Error("Todos los campos son obligatorios para crear el video.");
@@ -42,17 +34,10 @@ export class CreateVideoUseCase {
       }
 
       // Crear video.
-      const video = await this.videoRepository.create({
-        id,
-        topic,
-        description,
-        duration,
-        thumbnail,
-        videoUrl
-      });
-
+      const video = await this.videoRepository.create({ id, topic, description, duration, thumbnail, videoUrl });
       return video;
-    } catch (error) {
+    }
+    catch (error) {
       throw new Error("Error al crear el video: " + error); // Pierde el contenido del error
     }
   }

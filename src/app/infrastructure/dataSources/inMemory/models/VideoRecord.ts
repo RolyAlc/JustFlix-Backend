@@ -7,6 +7,5 @@ export interface VideoRecord {
   description: string;
   duration: number;
   thumbnail: string;
-  createdAt: string; // << guardat com string per exemple (ISO)
   videoUrl: string;
 }

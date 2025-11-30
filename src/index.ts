@@ -6,11 +6,11 @@ import { buildServer } from './app/http/server';
  * Inicializa el servidor y comienza a escuchar en el puerto configurado.
  */
 const app = buildServer();
-const port = config.port;
+const port_env = process.env.PORT_HOST
+const port = port_env ?? config.port;
 
 // Inicia la escucha del servidor con un callback.
 app.listen(port, () => {
     // Permite sobreescribir el host del entorno.
-    const hostPort = process.env.PORT_HOST ?? port;
-    console.log(`Servidor escuchando en http://localhost:${hostPort}`);
+    console.log(`Servidor escuchando en http://localhost:${port}`);
 });

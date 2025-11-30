@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from "express";
+import express, {  } from "express";
 import VideoRouter from "./routes/video.routes";
 import { errorMiddleware } from "./middlewares/error.middleware";
 import { notFoundMiddleware } from "./middlewares/notFound.middleware";
@@ -14,8 +14,8 @@ export function buildServer(): express.Application {
   const app = express();
 
   // Middlewares globales
-  app.use(express.json());
   app.use(cors());
+  app.use(express.json());
 
   const PUBLIC_DIR = path.resolve(process.cwd(), "public");
   // Servir archivos estáticos

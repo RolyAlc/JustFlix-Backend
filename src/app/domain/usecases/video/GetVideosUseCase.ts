@@ -5,9 +5,7 @@ import { Video } from "../../entities/Video";
  * Caso de uso: Obtener todos los videos.
  */
 export class GetVideosUseCase {
-  constructor(
-    private videoRepository: IVideoRepository
-  ) { }
+  constructor(private videoRepository: IVideoRepository) { }
 
   /**
    * Recupera todos los vídeos disponibles en el repositorio.
